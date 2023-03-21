@@ -1,3 +1,6 @@
+import file
+
+
 def show_menu():
 	print("""
 	\tCsv manager
@@ -23,39 +26,19 @@ def choice_menu():
 def show_data(input_str):
 	for i in input_str.split("\n"):
 		for j in i.split(";"):
-			print(j,end="|")
+			s=len(j)
+			print(j,end="\t"*(5-s//4))
 		print()
 
-def search_in_text(text,arg,search):
-	for i in text:
-		i = i.split(";")
-		if arg == 'id':
-			if i[0].startswith(search):
-				print(*i)
-				break
-		elif arg == 'city':
-			if i[1].startswith(search):
-				print(*i)
-				break
-		elif arg == 'region':
-			if i[2].startswith(search):
-				print(*i)
-				break
-		elif arg == 'district':
-			if i[3].startswith(search):
-				print(*i)
-		elif arg == 'population':
-			if i[4].startswith(search):
-				print(*i)
-				break
-		elif arg == 'foundation':
-			if i[5].startswith(search):
-				print(*i)
-				break
-		elif arg == 'numb':
-			if i[6].startswith(search):
-				print(*i)
-				break
-		else:
-			print("данного аргумента нет")
-			break
+
+
+def show_category(path):
+	line=file.read_line(path).split(";")
+	line[len(line)-1]=line[len(line)-1][:-1:]
+	print("Выберите категорию:")
+	for i in line:
+		print(i,end=" ")
+	choice=input()
+	if choice in line:
+		return line.index(choice)
+	else: raise ValueError("Данные ложны")

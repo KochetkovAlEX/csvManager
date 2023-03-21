@@ -14,10 +14,10 @@ def main():
 			input()
 			main()
 		elif choice==2:
-			print("id", "city", "region", "district", "population", "foundation")
-			arg = input("Поиск среди чего? ").lower()
-			search = input("Что ищем? ")
-			ui.search_in_text(file.text_create("data.csv"),arg,search)
+			category=ui.show_category("data.csv")
+			arg=input("Что ищем? ")
+			list_func.search_in_text(file.text_create("data.csv"),arg,category)
+			print()
 			input()
 			main()
 	except Exception as er:
