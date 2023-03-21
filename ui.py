@@ -42,3 +42,7 @@ def show_category(path):
 	if choice in line:
 		return line.index(choice)
 	else: raise ValueError("Данные ложны")
+
+def create_new_line(id,city,region,district,population,foundation):
+    line = [id + ";", city + ";", region + ";", district + ";", population + ";", foundation+"\n"]
+    return line

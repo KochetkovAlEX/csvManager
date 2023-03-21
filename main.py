@@ -16,10 +16,24 @@ def main():
 		elif choice==2:
 			category=ui.show_category("data.csv")
 			arg=input("Что ищем? ")
-			list_func.search_in_text(file.text_create("data.csv"),arg,category)
+			list_func.search_in_text(file.text_create("data.csv"),arg,category) #поиск и показ строк в файле
 			print()
-			input()
-			main()
+		elif choice ==4:
+			id=input("Введите id города: ")
+			city = input("Введите название города: ")
+			region = input("Введитфе Регион города: ")
+			district = input("Введите округ города: ")
+			population = input("Введите население города: ")
+			foundation = input("Введите дату основания города: ")
+			file.write_down("data.csv",ui.create_new_line(id,city,region,district,population,foundation))
+			print("Файл изменён")
+		elif choice==5:
+			id=input("Введите id удаляемой строки: ")
+			text=file.text_create("data.csv")
+			file.rewrite_file("data.csv",list_func.remove_line(id,text))
+			print("Файл изменён")
+		input()
+		main()
 	except Exception as er:
 		print(er)
 		input()
