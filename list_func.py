@@ -7,9 +7,13 @@ def search_in_text(text,arg,category):
     else:
         print("Элемент отсутствует")
 
-
-
-
+def unite(text,arg):
+    lst=[]
+    for i in text:
+        if arg in str(i):
+            if str(i).endswith("\n"): i=i[:-1]
+            lst.append(i)
+    print(*lst)
 def remove_line(id,text):
     if len(text)==id:
         for i in text:
@@ -22,3 +26,14 @@ def remove_line(id,text):
                 break
     else:
         print("0")
+
+def choice(text,arg):
+    list1=[]
+    for i in text:
+        if arg in str(i):
+            if str(i).endswith("\n"): i=i[:-1]
+            list1.append(i)
+            arg=input("Введите признак: ")
+        if arg=="/":
+            print(list1)
+            break

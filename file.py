@@ -1,6 +1,12 @@
 def read_file(path):
 	with open(path,"r",encoding="utf-8") as file:
 		return file.read()
+
+def new_file(name,text):
+	with open(str(name)+".csv","w",encoding="utf-8") as file:
+		for i in text:
+			file.write(i)
+	print("Готово")
 def text_create(path):
 	with open(path,"r",encoding="utf-8") as file1:
 		file1.readline()

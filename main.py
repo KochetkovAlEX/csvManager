@@ -32,6 +32,18 @@ def main():
 			text=file.text_create("data.csv")
 			file.rewrite_file("data.csv",list_func.remove_line(id,text))
 			print("Файл изменён")
+		elif choice==3:
+			arg = input("Общий признак ")
+			list_func.unite(file.text_create("data.csv"),arg)
+			print()
+		elif choice == 1: #создает новый на основе сущесвтующего
+			name=input("Введите имя файла: ")
+			file.new_file(name,file.text_create("data.csv"))
+			print()
+		elif choice==6:
+			arg=input("Общий признак ")
+			list_func.choice(file.text_create("data.csv"),arg)
+			print()
 		input()
 		main()
 	except Exception as er:
